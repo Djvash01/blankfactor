@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiRepository } from 'src/app/core/services';
 
 @Component({
@@ -8,5 +9,10 @@ import { ApiRepository } from 'src/app/core/services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DisplayComponent implements OnInit {
+  public data$!: Observable<Array<string>>;
   constructor(private readonly apiService: ApiRepository) {}
+
+  public ngOnInit(): void {
+    this.data$ = this.apiService.getData<Array<string>>('url');
+  }
 }

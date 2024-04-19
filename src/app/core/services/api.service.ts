@@ -7,6 +7,7 @@ export class ApiService implements ApiRepository {
   constructor() {}
 
   public getData<T>(url: string): Observable<T> {
-    return of({} as T);
+    const data = ['hello', 'World'];
+    return of(data as T);
   }
 }

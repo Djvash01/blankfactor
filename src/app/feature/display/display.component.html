@@ -1,7 +1,4 @@
-<header class="header">Hello world</header>
-<section class="content">
-  <div
-    class="content__element"
-    *ngFor="let item of list; trackBy: item.id"
-  ></div>
+<header class="header">MOrning</header>
+<section class="content" *ngIf="data$ | async as data">
+  <div class="content__element" *ngFor="let item of data">{{ item }}</div>
 </section>
